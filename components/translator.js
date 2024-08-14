@@ -10,6 +10,8 @@ class Translator {
    * @param {String} text 
    */
   translate(locale, text) {
+    if (!['american-to-british', 'british-to-american'].includes(locale)) return { error: 'Invalid value for locale field' };
+
     let dictionary = locale === 'american-to-british' ? {
       ...americanOnly,
       ...americanToBritishSpelling,
